@@ -130,13 +130,13 @@ $(function(){
     var banner = $('div#roll_banner_wrap > dl > dd > a > img')
     var currentIndex = 0;
     var slide;
-
+    // 1) 재생버튼 누르면 실행
     $('div#roll_banner_wrap > p.ctl_btn > a.playBtn > img').on('click',autoSlide);
-    // 정지버튼 누르면 정지
+    // 2) 정지버튼 누르면 정지
     $('div#roll_banner_wrap > p.ctl_btn > a.stopBtn > img').on('click',function(){
       clearInterval(slide);
     });
-
+    // autoSlide 함수 : 1초마다 배너와 숫자 알림판 자동 슬라이드
     function autoSlide(){
       slide = setInterval(function(){
         //현재 숫자와 배너를 인덱스로 표현
@@ -164,7 +164,7 @@ $(function(){
 
   
   };
-  // 자동 슬라이드
+  // 3) 웹 로딩 하자마자 자동 슬라이드
   autoSlide();
 
 
