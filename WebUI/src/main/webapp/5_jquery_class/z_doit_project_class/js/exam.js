@@ -39,9 +39,6 @@ $(function(){
   
     // 4. 베스트 BOOK -> bxSlider 
     $('div#best_bg').css({
-      'width' : '900px',
-      'left' : '5px',
-      'padding-left' : '120px',
     })
     var slider = $('div#bestbook_zone div#best_bg ul').bxSlider({
       minSlides : 5,
@@ -51,6 +48,8 @@ $(function(){
       slideMargin : 30,
       auto : true,
       autoHover: true,
+      pager:false,
+      controls : false
     })
       // 1) 이전 버튼
       $('.prev_btn').on('click', function(){
@@ -63,7 +62,7 @@ $(function(){
         slider.goToNextSlide();
         // <a> 링크 차단
         return false;
-      })
+      }).css({ 'margin-right' : '-50px' })
 
     // 5. 로그인 창 뜨게 하기
     $('.login_wrap > a > img').click(function(){
@@ -73,6 +72,21 @@ $(function(){
       $('.login_close_btn > a > img').click(function(){
         $('#login_f').css({ 'top' : '-500px' })
       })
+
+      // 2) 로그인에서 아이디와 비밀번호 란에 클릭 시 아이디, 비밀번호 없애기 / 보이기
+      $('#user_id').focus(function(){
+        $(this).prev().find('img').hide();
+      });
+      $('#user_pw').focus(function(){
+        $(this).prev().find('img').hide();
+      });
+      // 2) 폼이 아닌 다른 곳을 클릭했을 때, 검색어를 입력하세요 다시 뜨게 하기
+      $('#user_id').blur(function(){
+        $(this).prev().find('img').show()
+      });
+      $('#user_pw').blur(function(){
+        $(this).prev().find('img').show()
+      });
     
     // 6. 전체메뉴 누르면 창 뜨게 하기
     $('#total_btn > a > img').click(function(){
@@ -97,7 +111,7 @@ $(function(){
     // - 버튼 클릭 시 -> 10%씩 작아지기
     $('.zoom_out').on('click',function(){
       nowZoom -= 10;
-      if(nowZoom = 25) nowZoom=25;
+      if(nowZoom < 25) nowZoom=25;
       $('body').css({ 'zoom' : `${nowZoom}%`});
     })
     // 100이 있는 버튼 클릭 시 -> 100%으로 초기화
@@ -110,16 +124,48 @@ $(function(){
       window.print();
     })
 
-    // 9. 알림판 1-2-3-4
+    // 9. 알림판 1-2-3-4 : 재생 버튼 누르면 알림판 자동 슬라이드
     // active 클래스가 있는 이미지
-    var activeClass = $('dt.roll_btn1 > a > img');
-    $('div#roll_banner_wrap > dl > dt > a > img').on('setInterval',function(){
-      activeClass.parent().removeClass('active');
-      activeClass.attr('src',activeClass.attr('src').replace('_over','_out'));
-      $(this).attr('src',$(this).attr('src').replace('_out','_over'));
-      activeClass.parent().parent().next().hide();
-      $(this).parent().parent().next().show();
-      activeClass = $(this).parent().addClass('active').find('img');
-    },1000)
+    var activeClass = $('div#roll_banner_wrap > dl > dt > a > img');
+    var banner = $('div#roll_banner_wrap > dl > dd > a > img')
+    var currentIndex = 0;
+    var slide;
+
+    $('div#roll_banner_wrap > p.ctl_btn > a.playBtn > img').on('click',autoSlide);
+    // 정지버튼 누르면 정지
+    $('div#roll_banner_wrap > p.ctl_btn > a.stopBtn > img').on('click',function(){
+      clearInterval(slide);
+    });
+
+    function autoSlide(){
+      slide = setInterval(function(){
+        //현재 숫자와 배너를 인덱스로 표현
+        var currentNum = activeClass.eq(currentIndex);
+        var currentBanner = banner.eq(currentIndex);
+        
+        // 현재 숫자 사진 비활성화
+        currentNum.parent().removeClass('active');
+        currentNum.attr('src',currentNum.attr('src').replace('_over','_out'));
+        
+        // 현재 인덱스 변화
+        currentIndex = (currentIndex + 1) % banner.length;
+        
+        // 다음 숫자와 배너 지정
+        var nextNum = activeClass.eq(currentIndex);
+        var nextBanner = banner.eq(currentIndex);
+        
+        // 다음 숫자 사진 활성화와 현재 배너 숨기고 다음 배너 보이기
+        // 다음 숫자에 active 클래스 넣기
+        nextNum.attr('src',nextNum.attr('src').replace('_out','_over'));
+        currentBanner.hide();
+        nextBanner.show();
+        nextNum.parent().addClass('active');
+      },1000);
+
+  
+  };
+  // 자동 슬라이드
+  autoSlide();
+
 
 })
