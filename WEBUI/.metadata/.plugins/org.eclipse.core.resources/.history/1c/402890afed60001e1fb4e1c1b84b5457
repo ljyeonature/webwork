@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- Jquery 라이브러리 필요 -->
+    <!-- <script src="/WebUI/5_jquery_class/lib/jquery-3.7.1.js" type="text/javascript"></script> -->
+    <!-- <script src="../lib/jquery-3.7.1.min.js" type="text/javascript"></script> -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+
+    <script>
+
+        // 문서가 떠있을 때, 처리하겠음
+        // $(document).ready(function() {
+        //     $("#here").css('color','red');
+        // })
+
+        //이것을 주로 쓸 것이다!!
+        $(function() {
+            $("#here").css('color','red');
+        })
+
+        // 잘 안쓰지만, 문서보다가 이해하기
+        // jQuery(function($){
+        //     $("#here").css('color','blue');
+        // })
+        
+    </script>
+</head>
+<body>
+    <div id="here">
+        파이팅 제이쿼리~~!!
+    </div>
+</body>
+</html>

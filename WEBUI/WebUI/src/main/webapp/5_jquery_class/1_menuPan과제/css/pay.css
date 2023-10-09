@@ -1,0 +1,68 @@
+@font-face {
+  font-family: 'NPSfontBold';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2310@1.0/NPSfontBold.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+}
+
+body {
+  padding: 0px;
+	margin: 0px;
+  font-family: 'NPSfontBold';
+}
+form {
+  width: 100%;
+}
+
+table#orderListCheck {
+  margin:10px;
+	padding:0px;
+  border-collapse: collapse;
+  height: 300px;
+}
+
+#orderListTitle {
+  background-color :#ffd700;
+
+}
+/* 주문 내역 표 제목 */
+#titleText{
+  font-size: 25px;
+  width: 900px;
+}
+
+tr{
+	height: 30px;
+  border-bottom: 1px dotted;
+}
+
+td {
+  text-align : center;
+  border-bottom: 1px solid;
+}
+/* 총합 */
+#total{
+  float: right;
+  margin: 10px 10px;
+  font-size: 20px;
+}
+/* p가 block이라 inline으로 바꿔줌 */
+#totalValue{
+  display: inline;
+}
+/* 결제 버튼 */
+#payBtn {
+  clear: both;
+  float: right;
+  position: absolute;
+  top: 150px;
+  right: 270px;
+  width: 250px;
+  height: 60px;
+  border: none;
+  border-radius: 10px;
+  font-weight: bolder;
+  font-size: 25px;
+  background-color: #f2f2f2;
+  cursor: pointer;
+}

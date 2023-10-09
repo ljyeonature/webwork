@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>jquery event</title>
+
+<style type="text/css">
+	.bg { background : yellow; }
+	.border { border : 3px dotted red; }
+	</style>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+	<script>
+		$(function() {
+			// 'li' 요소에 클릭했을 때
+			// 해당 요소의 글자를 아이디가 result 요소에 글자로 출력
+			/*
+			$('li').click(function() {
+				$('#result').text($(this).text());
+			})
+			*/
+			// 계속 눌림 - 노 상관
+			/*
+			$('li').bind('click', function() {
+									$('#result').text($(this).text());
+								  })
+			*/
+			// 딱 한 번만 실행하면 끝!!! => 한 번 클릭 시 이벤트 종료
+			/*
+			$('li').one('click', function() {
+									$('#result').text($(this).text());
+								  })
+			*/
+			
+			$('h1').click(function() {
+				// 메모리 객체를 만들겠다
+				var li = $('<li/>').text(new Date());
+				$('ul').append(li);
+			});
+
+			// *************************************************************
+			// 1.on
+			// 2. 이벤트를 걸고자하는 부모 태그에 이벤트 걸기
+			// 3. .on(이벤트 명, 추가하고자 하는 태그 , 함수)
+			$('ul').on('click', 'li' ,function() {
+									$('#result').text($(this).text());
+								  })
+		});
+	</script>
+
+</head>
+<body>
+	<h1>제이쿼리 이벤트</h1>
+	 <ul>
+		<li>부에노스 아이레스</li>
+		<li>바르셀로나</li>
+		<li>리마</li>
+		<li>라파스</li>
+	 </ul>	
+	<div id="result"></div>
+</body>
+</html>

@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8"/>
+	<title> 첫 연습 </title>
+	<style>
+		.active {
+			border : 3px solid red;
+			outline: 3px solid red;
+		}
+	</style>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+	<script>
+		// 잊지 마시오
+		$(function() {
+			// 1.
+			$('ul > .man').css({
+				'background' : 'pink'
+			})
+			
+			$('ul > .woman').css({
+				'background' : 'lightgreen'
+			})
+
+			// 2.
+			$('.inputText').focus(function() {
+				// 내가 누른 얘들만
+				$(this).addClass('active');
+			});
+			$('.inputText').blur(function() {
+				// 다른 얘들 눌렀을 때, 클래스 사라짐 - focus의 반대말
+				$(this).removeClass('active');
+			})
+
+			// 3.
+			/*
+				자바스크립트 : innerHTML(태그와 태그 사이의 것을 가져옴)
+				제이쿼리    : text()=글씨 / html()=태그
+
+				* 제이쿼리 함수 특징 : setter, getter 동일
+						text()       - getter 역할
+						text('인자') - setter역할
+			*/
+			// alert($('#divText').text());
+			// $('#divText').text('<img src="images/grim.jpg">');
+			// $('#divHtml').html('<img src="images/grim.jpg">');
+			// // 날리기
+			// $('#divEmpty').empty();
+
+			// 그림을 클릭했을 때 강아지 그림을 고양이 그림으로 변경
+			// attr('속성명') : getter
+			// attr('속성명', '속성값') : setter
+			var num = 0;
+			
+			$('#changeGrim').click(function() {
+				if(num == 0) {
+					$(this).attr('src','images/cat.jpg');
+					num = 1;
+				} else {
+					$(this).attr('src','images/puppy.jpg');
+					num = 0;
+				}
+			})
+			// 4. 
+			/*
+				- 태그 태그 사이의 값 얻어오기/지정하기 : text()/html()
+				- 폼의 요소의 value 얻어오기/지정하기  : val()
+			*/
+			// '확인' 버튼이 눌렸을 때
+			$('#check').click(function() {
+				var result = '';
+
+				// var tf = $('#tf').val()
+				result += '이름은 ' + $('#tf').val() + '<hr />';
+
+				result += '메세지는 ' + $('#ta').val() + '<hr />';
+				result += '주소는 ' + $('#sel').val() +' ' + $('#sel_m').val() + '<hr />';
+
+				$('#result').html(result);
+			})
+			// '초기화' 버튼이 눌렸을 때
+			$('#init').click(function() {
+				$('#tf').val('저는 홍길동입니다');
+				$('#ta').val('안녕하세요');
+				$('#sel').val('incheon');
+				$('#sel_m').val(['seom1','seom3']);
+			})
+
+
+		});
+
+		$(function(){
+			// 5. 동적태그 만들기
+			var actor = $('#actor');
+			var tae   = $('#tae');
+			var su    = $('#su');
+			var bin   = $('#bin');
+
+			/*
+				` 부모.append(자식)
+				` 자식.appendTo(부모)
+			*/
+			// 동적인 태그
+			actor.append(tae);
+			su.appendTo(actor);
+
+			// 1.
+			actor.append('<div id="han">한배우</div>');
+			// 2.
+			var n = $('<div/>');
+			// var n = $('<div>');
+			// 속성 추가 => attr()
+			n.text('두배우').attr("id","two");
+			actor.append(n);
+
+			// 동적테이블 만들기
+			var tr1 = $('<tr/>');
+			var td1 = $('<td>가</td>');
+			var td2 = $('<td>나</td>');
+			
+			var tbl = $('#tbl');
+			tr1.append(td1);
+			tr1.append(td2);
+
+			tbl.append(tr1);
+
+			// 6.
+			var d = $('.data');
+			/*
+			d.click(function (){
+					// 이벤트가 발생한 그 객체 = $(this)
+					alert( $(this).text() );
+					// alert(this.innerHTML);
+			});
+			*/
+			// 여러 개의 값이 있기 때문에 each를 사용하게 더 적절?
+			// 구경만. 많이 쓰이지 않아.
+			d.each(function(){
+				$(this).click(function (){
+					// 이벤트가 발생한 그 객체 = $(this)
+					alert( $(this).text() );
+					// alert(this.innerHTML);
+				});
+
+			})
+
+
+		});
+		/*
+			태그와 태그 사이                 : text() / html()
+					js 		                : innerHTML()
+			폼의 요소의 value(사용자 입력값)  : val()
+		*/
+
+	</script>
+</head>
+<body>
+	<!--  1 -->
+	<ul>
+		<li class="man">김수현</li>
+		<li class="woman">김희애</li>
+		<li class="woman">송혜교</li>
+		<li class="man">하정우</li>
+		<li class="woman">김태희</li>
+	</ul>
+	<!-- 2 -->
+	<input type="text" class="inputText"/>
+	<input type="text" class="inputText"/>
+	<input type="text" class="inputText"/>
+	
+
+	<!-- 3 -->
+		<div id="divText">여기에 글씨를</div>
+		<div id="divHtml">여기에 그림을</div>
+		<div id="divEmpty">여기를 비움</div>
+		<p>
+		<img src="images/puppy.jpg" id='changeGrim'>
+		</p>
+		
+	<!-- 4 -->	
+		<p>
+		이름 : <input id="tf" type="text" size="20" /><br/>
+		메세지 : <textarea id="ta" rows="3" cols="20"></textarea><br/>
+		주소 : <select id="sel">
+			<option value="seoul">서울</option>	<!-- option에 value 값 없어도 됨 -->
+			<option value="busan">부산</option>
+			<option value="masan">마산</option>
+			<option value="incheon">인천</option>
+		</select>
+		<select id="sel_m" multiple="multiple">
+			<option value="seom1">제주도</option>
+			<option value="seom2">울릉도</option>
+			<option value="seom3">독도</option>
+			<option value="seom4">거제도</option>
+		</select><br/>
+		<input type='button' id='check' value='확인'/>
+		<input type='button' id='init' value='초기화'/> 
+		<div id='result'></div>
+		</p>
+		
+	<!-- 5 -->
+	<table id="tbl" border="2">
+
+	</table>
+		<div id="actor">배우</div>
+		<div id="tae">김태희</div>
+		<div id="su">김수현</div>
+		<div id="bin">현빈</div>
+
+
+	<!-- 6 -->
+		<div class="data">이름</div>
+		<div class="data">직업</div>
+		<div class="data">나이</div>
+
+	
+</body>
+</html>

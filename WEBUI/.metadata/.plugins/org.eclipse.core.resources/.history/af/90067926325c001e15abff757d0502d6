@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>복습.html</title>
+    <link rel="stylesheet" herf="./css/review.css"> 
+</head>
+<body>
+    <table id="tbl">
+        <tr>
+            <td>커피</td>
+            <td>녹차</td>
+        </tr>
+        <tr>
+            <td>케익</td>
+            <td>빵</td>
+        </tr>
+        <tr>
+            <td>과자</td>
+            <td>초코렛</td>
+        </tr>
+
+
+
+    </table>
+
+    <script src="./js/review.js"></script>
+</body>
+</html>

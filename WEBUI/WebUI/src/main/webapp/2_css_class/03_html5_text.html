@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>제주 올레</title>
+<!-- 
+	10진수 : 0 ~ 9
+	16진수 : 0 ~ 9 A B C D E F
+	
+ -->
+
+<style type="text/css">
+body {
+	background: #FFFFFF url(../images/new/bg3.jpg)
+	repeat-x 
+	fixed left bottom;
+}
+
+header {
+display : flex;
+	justify-content: center;
+}
+
+
+#table{
+	display:flex;
+	justify-content: center;
+}
+
+
+
+#section2 {
+	display : flex;
+	justify-content: center;
+}
+
+
+figure > img {
+	width:500px;
+	height:300px;
+	
+}
+
+
+</style>
+</head>
+
+<body>
+	<!-- 한 번 보기--------- -->
+	<!-- <b>진하게</b>
+	<br />
+	<strong>중요한</strong>
+	<br />
+	<em>강조</em>
+	<br />
+	<i>이탤릭 강조</i>
+	<br />
+	<b><i>진하게+이탤릭</i></b>
+	<br /> 보통문자
+	<small>작은문자</small>
+	<br /> 보통문자
+	<sup>윗첨자</sup>
+	<br /> 보통문자
+	<sub>아랫첨자</sub>
+	<br />
+	<del>삭제</del>
+	<br />
+	<ins>추가</ins>
+	<br />
+	<mark>하이라이팅</mark>
+	<br />
+ -->
+	<!-- <hr /> -->
+	<!-- --------- -->
+
+	<header>
+		<h1>제주 올레</h1>
+	</header>
+
+	<section id='section1'>
+		<h3><ins>제주 올레 7코스</ins></h3>
+
+		<p>
+			<!-- 2.  수봉로 글씨만 하이라이팅 -->
+			외돌개를 출발하여 법환포구를 경유해 월평포구까지 어어진 해안올레. 올레인들이 가장 아끼고자연생태길인 '
+			<mark>수봉로</mark>
+			'를 만날 수 있다.
+			<mark>수봉로</mark>
+			는 세 번째 코스 개척 시기인 2007년 12월, 올레지기인 '김수봉'님이 염소가 다니던 길에 직접 삽과 곡괭이만으로 계단과
+			길을 만들어서 사람이 걸어다닐 수 있도록 한 길이다.
+		</p>
+
+		<!-- 1 -->
+		<!-- 개행을 하고 싶다 -> p태그 / div태그  -->
+		<div id="table">
+		
+		<table border='2'>
+			<caption>
+				<p>
+					패스포트 <b>스탬프 확인 장소</b>
+				</p>
+			</caption>
+			<thead>
+				<tr>
+					<th>시작</th>
+					<th>중간</th>
+					<th>종점</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<!-- 열 -->
+					<td><strong>외돌개 제주 올레 안내소</strong></td>
+					<td><em>강정 올레 쉼터</em></td>
+					<td><i>월평 송이 슈퍼</i></td>
+				</tr>
+
+
+			</tbody>
+		</table>
+		</div>
+
+
+
+		<!-- 		<!-- 진하게 -->
+		<!-- <div>
+			시작 <strong>외돌개 제주 올레 안내소</strong>
+		</div>
+		중요하게
+		<div>
+			중간 <em>강정 올레 쉼터</em>
+		</div>
+		강조
+		<div>
+			종점 <i>월평 송이 슈퍼</i>		
+		</div> -->
+		<!-- 이탤릭체 -->
+
+		<!-- 3.   삭제할 글자와 밑줄을 -->
+		<div align="center" id="wrapper">
+			<p>
+				난이도 :
+				<del>상</del>
+			</p>
+			길이:
+			<ins>총 16.4km(4~5시간)</ins>
+			<p>수봉로는 언덕길이고 일강정 바당올레에서 서건도 사이 바윗길이 험한 편이다</p>
+		</div>
+
+		<!-- p -> 공백.엔터 등 뭘 해도 한 줄 -->
+		<!-- 공백 : &npsb; -->
+
+		<!-- pre -> 작성한 그대로 보여줌. -->
+		<!-- <pre>
+수봉로는 언덕길이고 
+			일강정 바당올레에서 
+							서건도 사이 바윗길이 험한 편이다
+</pre> -->
+	</section>
+
+	<!-- 이미지 출력 -->
+	<section id='section2'>
+		<!-- 이미지와 관련 글이 있는 경우 figure / 글은 figcaption으로 묶어주기 -->
+		<figure id='bg1'>
+			<img src='/WebUI/images/new/road1.jpg' />
+			<figcaption><b>수봉로 언덕을 넘자마자 다시 만나게 되는 바다.</b></figcaption>
+		</figure>
+
+		<!-- road2.jpg 이미지 출력 ( 상대경로 ) -->
+		<figure id='bg1'>
+			<img src='../images/new/road2.jpg' />
+			<figcaption><b>외돌개 산책로에서 외돌개가 보인다. 전설을 들어보면 가슴 아리다</b></figcaption>
+		</figure>
+	</section>
+</body>
+</html>
+

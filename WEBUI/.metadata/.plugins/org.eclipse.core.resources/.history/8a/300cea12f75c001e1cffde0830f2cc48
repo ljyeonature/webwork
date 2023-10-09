@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<title> window ���� </title>
+<script type="text/javascript">
+
+		/*
+		1. ������ �ɼ��� ��(value)�� ���´�.
+		2. location ��ü�� href ������Ƽ�� url�� ����
+		*/
+
+
+</script>
+</head>
+<body>
+	<form name="frm">
+		<h1> �̵��ϱ� ���ϴ� �������� �����ϼ��� </h1>
+		<select name="chooseSite" id='chooseSite'>
+			<option>��� ���</option>
+			<option value="http://www.daum.net">������</option>
+			<option value="http://www.naver.com">���̹�</option>
+			<option value="http://www.nate.com">���̶�</option>
+		</select>
+	</form>
+</body>
+</html>

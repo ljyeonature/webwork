@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>jquery filter</title>
+
+<!--4. class 속성제어 -->
+<style type="text/css">
+	.bg { background : yellow; }
+	.border { border : 3px dotted red; }
+	.borderRed { border : 3px dotted red; }
+	.borderBlue { border : 3px dotted blue; }
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script>
+	$(function(){
+		// 음식 중에서 세 번째 요소
+		// eq(2) => 0부터 인덱스
+		// $('#food').find('li:eq(2)').addClass('bg');
+		// nth-child(3) => 1부터 인덱스
+		// $('#food > li:nth-child(3)').addClass('border');
+
+		// (1) '튀김'을 포함한 요소 선택
+		// var li = $('#food > li').val();
+		// console.log(li);
+		$('#food > li:contains(튀김)').addClass('bg');
+		$('ul').each(function() {
+			$(this).find('li:contains("튀김")').addClass('borderRed');
+		})
+		$('#food').find('li:contains("튀김")').addClass('borderRed');
+		
+		// (2) 술 종류 중에서 두번째 요소 선택
+		$('ul:odd > li:nth-child(2)').addClass('borderRed');
+		// id 추가
+		// $('#alcohol > li:nth-child(2)').addClass('borderBlue');
+		$('ul:eq(1) > li:eq(1)').addClass('borderRed');
+		$('ul:eq(1)').find('li:nth-child(2)').addClass('borderRed');
+
+		// (3) 각 종류의 첫번째 요소 선택
+		$('ul > li:first-child').addClass('borderBlue');
+		$('ul').each(function() {
+			$(this).find('li:eq(0)').addClass('borderGreen');
+		})
+		$('ul').find('li:eq(0)').addClass('borderBlue');
+
+	});
+</script>
+
+</head>
+<body>
+		<h1>제이쿼리 시작</h1>
+		<h2>내가 좋아하는 음식 </h2>
+		<ul id="food">
+			<li>떡볶이</li>
+			<li>어묵</li>
+			<li>닭튀김</li>
+			<li>돼지튀김</li>
+			<li>소튀김</li>
+			<li>구두튀김</li>
+		</ul>
+		<!-- 2. 추가하고 다시 확인 -->
+		<h2>내가 좋아하는 술</h2>
+		<ul>
+			<li>와인</li>
+			<li>맥주</li>
+			<li>막걸리</li>
+			<li>소주</li>
+		</ul>
+	<div id="result"></div>
+</body>
+</html>

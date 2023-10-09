@@ -1,0 +1,145 @@
+@CHARSET "UTF-8";
+
+@import url(http://fonts.googleapis.com/earlyaccess/nanumgothic.css);
+@import url(http://fonts.googleapis.com/earlyaccess/jejugothic.css);
+@font-face {
+  font-family: 'NPSfontBold';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2310@1.0/NPSfontBold.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+}
+body {
+	padding: 0px;
+	margin: 0px;
+  font-family: 'NPSfontBold';
+
+}
+div{
+	/* float:left; */
+	position: relative;
+}
+#topdiv {
+	display:flex;
+	width: 1000px;
+	height: 400px;
+}
+#bottomdiv{
+	width: 1000px;
+	left: 10px;
+	top:450px
+}
+td.menu {
+	padding: 10px;
+	text-align : center;
+}
+
+.menutbl{
+	margin:10px;
+	padding:5px;		
+	/* border:1px solid black; */
+	/* border-radius: 10px; */
+}
+.menutbl tr td {
+	padding-top: 30px;
+}
+.menutbl tr td img{
+	padding-bottom: 3px;
+}
+
+#menutitle{
+	height:100px;
+	background-color :#ffd700;
+}
+
+#titleText{
+	font-size: 30px;
+	text-align : center;
+}
+
+.menus{
+	margin:10px;
+}
+
+/* #menu1{
+	border-right: 1px solid black;
+}
+
+#menu2{
+	border-right: 1px solid black;
+}
+#menu3{
+	border-top: 1px solid black;
+} */
+
+button {
+  margin-top: 10px;
+  width: 90px;
+  height: 45px;
+  border: none;
+  font-size: 40px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+#listTable{
+	margin:10px;
+	padding:0px;
+	border-collapse: collapse;
+}
+#listtitle{
+	height: 100px;
+	background-color :#ffd700;
+}
+#listtr{
+	height:50px;
+	border-bottom: 1px dotted;
+}
+#listTable td{
+	text-align : center;
+	border-bottom: 1px solid;
+}
+#totallist{
+	height:50px;
+}
+/* 주문내역 크기 조절 */
+#titleText {
+	width: 999.98px;
+}
+
+/* 총합 */
+
+/* 삭제  버튼 */
+.delBtn{
+  border: none;
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  cursor: pointer;
+}
+
+/* 주문하기 버튼 */
+#orderBtn{
+  height: 30px;
+	width: 60px;
+  border: none;
+  border-radius: 5px;
+	background-color:#f2f2f2;
+  cursor: pointer;
+  font-weight: bolder;
+	float: right;
+}
+#totalDiv {
+	flex: inline;
+	float: left;
+	position: relative;
+}
+
+/* 총합의 input  */
+#total{
+	display: inline;
+  height: 30px;
+  border-radius: 15px;
+  text-align: right;
+  font-size: 20px;
+	right: 335px;
+
+}

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title> 복습 </title>
+    
+    <!-- 부트스트랩 -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    
+</head>
+<body>
+	<!--  ............................................................................  -->   
+
+ <div class="page-header">  
+	    <h1 class="text-primary text-center">사원관리</h1>
+	    <p class="text-center">사원의 정보를 입력하세요</p>
+</div>
+ 	<div class="container">
+		<form action='EmpInsert.jsp' class='form'>
+			<div class="form-group">
+				<label for="empno">사번</label> 
+				<input type="text" id='empno' class='form-control' name='empno' placeholder="사번">
+			</div>
+			<div class="form-group">
+				<label for="ename">이름</label> 
+				<input type="text" id='ename' class='form-control' name='ename' placeholder="사원명">
+			</div>
+			
+			<div class="form-group">
+				<label for="job">업무</label> 
+				<select id='job' name='job' class="form-control selectpicker">
+					<option selected="selected">IT</option>
+					<option>개발</option>
+					<option>CLERK</option>
+					<option>SALESMAN</option>
+					<option>MANAGER</option>
+					<option>ANALYST</option>
+				</select>
+			</div>
+			
+			<div class="form-group">
+				<label for="hiredate">입사날짜</label> 
+				<input type="date" id='hiredate' class='form-control' name='hiredate' placeholder="입사날짜">
+			</div>
+			<div class="form-group">
+				<label for="sal">월급</label> 
+				<input type="text" id="sal" class='form-control' name="sal" placeholder="월급">
+			</div>
+			<div class="form-group">
+				<label for="deptno">부서번호</label> 
+				<select id='deptno' name='deptno' class="form-control selectpicker">
+					<option selected="selected" >10</option>
+					<option>20</option>
+					<option>30</option>
+					<option>40</option>
+				</select>
+			</div>
+			<button type="submit" class='btn btn-warning'>확인</button>
+		</form>
+	</div>
+	    
+
+
+	<!--  ............................................................................  --> 
+	
+    <!-- jQuery (부트스트랩의 자바스크립트 플러그인을 위해 필요합니다) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <!-- 모든 컴파일된 플러그인을 포함합니다 (아래), 원하지 않는다면 필요한 각각의 파일을 포함하세요 -->
+    <script src="js/bootstrap.min.js"></script>
+</body>
+</html>

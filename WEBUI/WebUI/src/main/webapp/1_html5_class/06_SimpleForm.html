@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>06_SimpleForm.html</title>
+</head>
+<body>
+
+	<!-- 정보 전달 방식 : get(너무 많은 양.. , 보안X) / post() -->
+	<form method='post'>
+
+		<fieldset>
+			<legend>회원가입</legend>
+			<ol>
+				<li>
+					<!-- label > for : 이름 / input > id :이름 --> 
+					<label for='name'>이름</label>
+					<input type='text' id='name' name='irum'/>
+				</li>
+				<li>
+					<!-- radio : 하나만 선택 -> 그룹으로 묶기 : name='gender' --> 
+					<!-- 어떤 값을 선택했어? value='male'/value='female' --> 
+					<label for='gender'>성별</label>
+					<input type='radio' name='gender' value='남자'/> 남자
+					<input type='radio' name='gender' value='여자'/> 여자
+				</li>
+				<li>
+					<label for='job'>직업</label>
+					<select id='job' name='job'>
+						<option>개발자</option>
+						<option>프로그래머</option>
+						<option selected="selected">노가다</option>
+					</select>
+				</li>
+				<li>
+					<label for='hobby'>취미</label>
+					 <input type="checkbox" id="hobby" name="hobby" value='잠자기' checked='checked'/> 잠자기
+					 <input type="checkbox" id="hobby" name="hobby" value='먹기'/> 먹기
+					 <input type="checkbox" id="hobby" name="hobby" value='숨쉬기'/> 숨쉬기
+					 <input type="checkbox" id="hobby" name="hobby" value='멍때리기'/> 멍때리기
+				</li>
+				<li>
+					<label for='lovercheck'>애인</label>
+					<input type='radio' name='lovercheck' value='있다'/> 있다
+					<input type='radio' name='lovercheck' value='없다'/> 없다
+				</li>
+				
+				<!-- 모바일용 : 입력가능! -->
+				<li>
+				<!-- name : 서버 측에서 찾을 때 필요 -->
+				<!-- id : 유일한 값이어야 함. -->
+					<label for='abc'>여행</label>
+					<input type='text' id='abc' list='countries' name='countries'/>
+					<datalist id='countries'>
+						<option value='가나'>
+						<option value='브라질'>
+						<option value='캄보디아'>
+					</datalist>
+				</li>
+				
+				<li>
+				<input type='submit' value='확인'/> 
+				<input type='reset' value='취소'/>
+				</li>
+
+			</ol>
+
+		</fieldset>
+
+
+	</form>
+
+</body>
+</html>

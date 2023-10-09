@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8"/>
+	<title> 첫 연습 </title>
+
+	<style>
+		div#here {
+			position: absolute;
+			top: 0;
+			left: 0;
+		}
+	</style>
+
+</head>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script>
+	$(function() {
+		// $('div #here') => 못 찾는다 => 자손으로 생각
+		var h = $('body > div#here');
+		// 아이디가 'here' 요소에서 클릭 이벤트가 발생했을 때
+		h.click(() => {
+			h.text('클릭하면 내용이 바뀝니다.');
+		});
+
+		h.mouseenter(function() {
+			h.text('마우스가 들어감');
+		})
+		// <-> 반대입니다.
+		h.mouseleave(function() {
+			h.text('마우스가 나감');
+		})
+
+		// hover -> 이벤트 2개(마우스 갖다댔을 때, 마우스 안 댔을 때)
+		h.hover(function(){
+			h.css('border', '2px solid green');
+		}, function(){
+			h.css('border', '1px dashed red');
+		});
+
+		// 체이닝 방식
+		// h.fadeOut(1000).fadeIn(1000);
+
+		// h.slideUp(1000).slideDown(1000);
+
+		h.animate({
+			top : 100,
+			left : 300,
+			// fontSize:'80px'
+
+		});
+
+		var stu = $('#student');
+		var n   = stu.find('#name');
+		n.css({
+			'background' : '#AAFF36',
+			'color'      : '#FF0000s',
+			'font-size'  : '20px'
+		})
+
+	});
+
+</script>
+<body>
+	
+
+	<div id="here">
+	아자아자 제이쿼리~~!!! 
+	</div>
+	
+	
+	<div id="student">
+		<div id="name">홍길동</div>
+		<div id="age">34</div>
+	</div>
+
+
+	
+</body>
+</html>
