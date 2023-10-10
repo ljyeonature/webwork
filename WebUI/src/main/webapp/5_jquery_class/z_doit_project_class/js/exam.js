@@ -36,6 +36,15 @@ $(function(){
       $(this).attr('src',$(this).attr('src').replace('_out','_over'));
       $(this).attr('class','over');
     });
+
+  for(let i =0; i<$('#tabmenu dt a').length; i++){
+      $('#tabmenu dt a').eq(i).on('click',function(){
+         $('#tabmenu dt a').removeClass('select');
+         $('#tabmenu dd').removeClass('show').css({'display' : 'none'});
+         $('#tabmenu dt a').eq(i).addClass('select');
+         $('#tabmenu dd').eq(i).addClass('show').css({'display' : 'block'});
+      });
+   }   
   
     // 4. 베스트 BOOK -> bxSlider 
     $('div#best_bg').css({
