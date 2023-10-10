@@ -7,7 +7,24 @@
   href="http://code.jquery.com/ui/1.10.0/themes/ui-lightness/jquery-ui.css" />
 <script type="text/javascript"  src="http://code.jquery.com/jquery-1.9.0.js"></script>
 <script type="text/javascript"   src="http://code.jquery.com/ui/1.10.0/jquery-ui.js"></script>
+<script>
+  $(function(){
+    // 한국어로
+    // $.datepicker.setDefaults($.datepicker.regional['ko']);
+    $('#datepicker').datepicker({
+      showOn : 'button',
+      buttonImage : 'images/calendar.gif',
+      showButtonPanel : true,
+      showAnim : 'slideDown'
+    });
 
+    var mydate = new Date('2025-12-25');
+    $('#datepicker').datepicker('setDate', mydate);
+
+  })
+
+
+</script>
 </head>
 <body>
 <label for="date">날짜:</label>
