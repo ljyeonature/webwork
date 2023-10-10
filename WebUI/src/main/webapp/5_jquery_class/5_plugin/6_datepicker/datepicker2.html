@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>Datepicker</title>
+<link rel="stylesheet" type="text/css"
+  href="http://code.jquery.com/ui/1.10.0/themes/ui-lightness/jquery-ui.css" />
+<script type="text/javascript"  src="http://code.jquery.com/jquery-1.9.0.js"></script>
+<script type="text/javascript"   src="http://code.jquery.com/ui/1.10.0/jquery-ui.js"></script>
+<script>
+  $(function(){
+    // 한국어로
+    // $.datepicker.setDefaults($.datepicker.regional['ko']);
+    // $('#datepicker').datepicker({
+    //   showOn : 'button',
+    //   buttonImage : 'images/calendar.gif',
+    //   showButtonPanel : true,
+    //   showAnim : 'slideDown'
+    // });
+    // // 날짜 지정
+    // var mydate = new Date('2025-12-25');
+    // $('#datepicker').datepicker('setDate', mydate);
+
+    // 오늘 날짜 찍기
+    var today = new Date();
+    $('span#today').text(today.toLocaleDateString());
+
+    $('#fromDate').datepicker({
+      dateFormat: 'yy-mm-dd'
+      ,changeYear: true
+      ,minDate : 0
+      // 종료일은 시작일부터 이후만 선택 가능(이전은 선택 불가능)
+      ,onClose : function(selectedDate){
+        // alert(selectedDate);
+        $('#toDate').datepicker("option", "minDate", selectedDate);
+      }
+    });
+    
+    $('#toDate').datepicker({
+      dateFormat: 'yy-mm-dd'
+      ,changeYear: true
+      ,onClose : function(selectedDate){
+        // alert(selectedDate);
+        $('#fromDate').datepicker("option", "maxDate", selectedDate);
+      }
+    });
+
+
+
+  });
+
+
+</script>
+</head>
+<body>
+  오늘 날짜 : <span id="today"></span>
+  <form>
+    <label for="fromDate">시작일</label>
+    <input id="fromDate" type="text" name="fromDate">
+    ~
+    <label for="toDate">종료일</label>
+    <input id="toDate" type="text" name="toDate">
+  </form>
+</body>
+</html>
