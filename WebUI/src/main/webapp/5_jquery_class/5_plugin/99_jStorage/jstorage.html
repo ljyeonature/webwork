@@ -10,7 +10,28 @@
   <script type="text/javascript" src="js/jstorage.min.js"></script>
 
   <script type="text/javascript">
+    $(function(){
+      // 저장소에서 값을 가져와서 화면 출력
+      $('#name').val($.jStorage.get('myname'));
+      $('#memo').val($.jStorage.get('memo'));
 
+      $('#set').on('click',function(){
+        // 화면 입력값을 저장
+        var name = $('#name').val();
+        $.jStorage.set('myname', name);
+        var memo = $('#memo').val();
+        $.jStorage.set('memo', memo);
+
+        // 화면 지우기
+        $('#name').val('');
+        $('#memo').val('');
+
+      });
+
+      $('#del').on('click', function(){
+        $.jStorage.deleteKey('myname');
+        $.jStorage.deleteKey('memo');
+      })
   </script>
 </head>
 <body>
